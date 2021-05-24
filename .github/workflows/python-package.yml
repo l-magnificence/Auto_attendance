@@ -8,7 +8,7 @@ on:
   push:
   schedule:
     # 07:05 everyday in UTC+8, 23:05 everyday in UTC+0
-    - cron: '05 22 * * *'
+    - cron: '05 16 * * *'
 
 jobs:
   build:
@@ -30,13 +30,11 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run app
         env:
-          mxl_username: ${{ secrets.MXL_USERNAME }}
-          mxl_password: ${{ secrets.MXL_PASSWORD }}
-          ljt_username: ${{ secrets.LJT_USERNAME }}
-          ljt_password: ${{ secrets.LJT_PASSWORD }}
-          zsw_username: ${{ secrets.ZSW_USERNAME }}
-          zsw_password: ${{ secrets.ZSW_PASSWORD }}
+          lhw_username: ${{ secrets.LHW_USERNAME }}
+          lhw_password: ${{ secrets.LHW_PASSWORD }}
+          xk_username: ${{ secrets.XK_USERNAME }}
+          xk_password: ${{ secrets.XK_PASSWORD }}
         run: |
-          python3 auto.py --username=$mxl_username --password=$mxl_password
-          python3 auto.py --username=$ljt_username --password=$ljt_password
-          python3 auto.py --username=$zsw_username --password=$zsw_password
+          python3 auto.py --username=$lhw_username --password=$lhw_password
+          python3 auto.py --username=$xk_username --password=$xk_password
+
